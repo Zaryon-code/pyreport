@@ -15,18 +15,13 @@ jobs:
     -   name: checkout
         uses: actions/checkout@v4
 
-    -   name: Remove File # delete the old distribution.json
-        uses: JesseTG/rm@v1.0.2
-        with:
-            path: ${{github.workspace}}/resultado_headers.csv
-
     -   name: execute py script # run file
         run: |
           python cflare.py
           
-    -   name: Git Commit and Push Action
-        uses: mgrybyk-org/git-commit-pull-push-action@v1
+    -   uses: EndBug/add-and-commit@v9
         with:
-            branch: main
-            commit_message: Apply automatic changes
+          message: 'Add the very useful text file'
+          add: 'resultado_headers.csv --force'
+          #cwd: './data/'
 
