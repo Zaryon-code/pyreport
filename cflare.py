@@ -1,5 +1,6 @@
 import requests
 import csv
+import os
 
 def verificar_cloudflare(url):
     try:
@@ -34,6 +35,10 @@ def verificar_cloudflare(url):
         }
 
 def guardar_en_csv(resultados, nombre_archivo='resultado_headers.csv'):
+    directorio = 'data'
+    os.makedirs(directorio, exist_ok=True)
+    ruta_completa = os.path.join(directorio, nombre_archivo)
+
     if resultados:
         # Obtener todas las claves únicas para usarlas como encabezados del CSV
         keys = set()
@@ -41,7 +46,7 @@ def guardar_en_csv(resultados, nombre_archivo='resultado_headers.csv'):
             keys.update(res.keys())
         keys = sorted(keys)
 
-        with open(nombre_archivo, 'w', newline='', encoding='utf-8') as f:
+        with open(ruta_completa, 'w', newline='', encoding='utf-8') as f:
             writer = csv.DictWriter(f, fieldnames=keys)
             writer.writeheader()
             writer.writerows(resultados)
