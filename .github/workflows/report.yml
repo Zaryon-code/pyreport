@@ -19,7 +19,7 @@ jobs:
         run: |
           python cflare.py
     -   name: Upload to repo
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
             name: resultado_headers
             path: ${{github.workspace}}\data\resultado_headers.csv
