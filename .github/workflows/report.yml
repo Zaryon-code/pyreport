@@ -23,3 +23,11 @@ jobs:
         with:
             name: resultado_headers
             path: ${{github.workspace}}/resultado_headers.csv
+    -   name: download artifact to data
+        uses: actions/download-artifact@v2
+        with:
+            name: distribution
+            path: ${{github.workspace}}/data
+    -   uses: stefanzweifel/git-auto-commit-action@v6
+        with:
+            commit_message: commit report to repo
