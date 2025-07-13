@@ -1,1 +1,20 @@
+name: Generate Report CSV
 
+permissions:
+    contents: write
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  Create_CSV:
+    runs-on: ubuntu-latest
+    steps:
+    -   name: checkout
+        uses: actions/checkout@v4
+
+    -   name: execute py script # run file
+        run: |
+          python cflare.py
