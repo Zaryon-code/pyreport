@@ -15,14 +15,9 @@ jobs:
     -   name: checkout
         uses: actions/checkout@v4
 
-#    -   name: Clone Zaryon-code/pyreport PUBLIC repository
-#        uses: GuillaumeFalourd/clone-github-repo-action@v2.3
-#        with:
-#            owner: 'Zaryon-code'
-#            repository: 'pyreport'
     -   name: Pull latest changes
         run: git pull --rebase origin main
-        
+
     -   name: execute py script # run file
         run: |
           python cflare.py
