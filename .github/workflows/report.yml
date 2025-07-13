@@ -18,10 +18,10 @@ jobs:
     -   name: execute py script # run file
         run: |
           python cflare.py
-    -   uses: stefanzweifel/git-auto-commit-action@v6
+          
+    -   name: Git Commit and Push Action
+        uses: mgrybyk-org/git-commit-pull-push-action@v1
         with:
-            commit_message: commit report to repo
-            commit_options: '--no-verify --signoff'
-            commit_author: Author <actions@github.com>
-            status_options: '--untracked-files=no'
-            skip_dirty_check: true
+            branch: main
+            commit_message: Apply automatic changes
+
