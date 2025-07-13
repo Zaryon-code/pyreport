@@ -22,6 +22,6 @@ jobs:
     -   uses: EndBug/add-and-commit@v9
         with:
           message: 'Add the very useful text file'
-          add: 'resultado_headers.csv --force'
+          add: '/data/resultado_headers.csv --force'
           #cwd: './data/'
 
