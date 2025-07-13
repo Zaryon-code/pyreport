@@ -2,6 +2,10 @@ import requests
 import csv
 import os
 
+url1 = os.environ.get("URL1")
+url2 = os.environ.get("URL2")
+url3 = os.environ.get("URL3")
+
 def verificar_cloudflare(url):
     try:
         response = requests.get(url, timeout=10)
@@ -57,9 +61,9 @@ def guardar_en_csv(resultados, nombre_archivo='resultado_headers.csv'):
 
 # Lista de URLs (puedes agregar más)
 urls = [
-    "https://www.cloudflare.com",
-    "https://www.google.com",
-    "https://www.wikipedia.org"
+    url1,
+    url2,
+    url3
 ]
 
 # Ejecutar análisis y guardar resultados
