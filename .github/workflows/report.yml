@@ -15,6 +15,11 @@ jobs:
     -   name: checkout
         uses: actions/checkout@v4
 
+    -   name: Remove File # delete the old distribution.json
+        uses: JesseTG/rm@v1.0.2
+        with:
+            path: ${{github.workspace}}/resultado_headers.csv
+
     -   name: execute py script # run file
         run: |
           python cflare.py
